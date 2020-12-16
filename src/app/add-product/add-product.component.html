@@ -1,0 +1,32 @@
+<div class="outer flex sm:items-center">
+    <a [routerLink]="['/']" class="flex-grow" ><mat-icon>arrow_back</mat-icon></a>
+    <button  class="btn btn-light shadow-xs" style="margin-right: 5%;margin-top:-30px" (click)="save()">Save</button>
+</div>
+<!--Product Details Form-->
+<mat-card class="card">
+    <br><br>
+    <hr>
+    <form [formGroup]="userform">
+        <br>
+            <legend style="font-size: 15px;">Product Name *</legend>
+            <input type="text" matInput formControlName="name" placeholder="Enter Product Name" style="" required><br><br>
+            <span *ngIf="isError" style="color:red">{{error[0]}}</span>
+
+            <legend style="font-size: 15px;">Categories </legend>
+            <input type="text" matInput formControlName="category" placeholder="Enter multuple values seperated by comma" required><br><br>
+            <span *ngIf="isError" style="color:red">{{error[1]}}</span>
+            
+            <legend style="font-size: 15px;">Tags </legend>
+            <input type="text" matInput formControlName="tag" placeholder="Enter multuple values seperated by comma" required><br><br>
+            <span *ngIf="isError" style="color:red">{{error[2]}}</span>
+            
+            <legend style="font-size: 15px;">Price </legend>
+            <input type="text" matInput formControlName="price" placeholder="$ 10.9" required><br><br>
+            <span *ngIf="isError" style="color:red">{{error[3]}}{{error[5]}}</span>
+            
+            <legend style="font-size: 15px;">Quantity </legend>
+            <input type="text" matInput formControlName="quantity" placeholder="3" required>               
+            <span *ngIf="isError" style="color:red">{{error[4]}}{{error[5]}}</span>
+    </form>
+</mat-card>
+<!--End Of Form-->

@@ -1,0 +1,84 @@
+
+#mid-div{
+    margin-top: 6%;background-color: #039be6;height: 200px;
+}
+
+h1{
+    color: rgb(198, 245, 221);font-size: 30px;margin-left: 5%;margin-top:-30px
+}
+
+a{
+    margin-right: 5%;margin-top:-30px
+}
+
+tr{
+    height: 60px;border-bottom: 1px solid black;
+}
+table{
+    margin-top: -60px;
+    background-color: white;
+    border-radius: 10px;
+    width: 95%;
+    margin-left: 20px;
+    text-align: center;
+}    
+.flow
+{
+    height: 200px;
+ /*    background-color:#039be6;  */
+}
+
+#loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    margin: -75px 0 0 -75px;
+    
+    border-radius: 50%;
+    
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    }
+    #loadings{
+    left: 47%;
+    top: 43%;
+    position: absolute;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+
+
+
+
+
+    /*88888888888**/
+    .card{
+        background-color: white;
+        border-radius: 10px;
+        width: 95%;
+        margin-left: 20px;;
+        margin-top: -60px;
+    }
+    
+    ::placeholder {
+        color: rgb(116, 116, 116);
+        opacity: 1; /* Firefox */
+      }
+      
+    input{
+        width: 100%;
+        border: 1px solid grey;border-radius: 5px;
+    }
+    .outer{
+        margin-top: 6%;background-color: #039be6;height: 200px;
+    }
+    
+   

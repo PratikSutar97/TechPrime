@@ -1,0 +1,89 @@
+
+<!--NAVBAR-->
+<div *ngIf="toggle">
+<div class="flex sm:items-center" id="mid-div">
+    <h1 class="flex-grow">Products</h1>
+    <a [routerLink]="['/addNew']" class="btn btn-light shadow-xs">ADD NEW PRODUCT</a>
+</div>
+<!-- Data Table-->
+<table class="table" >
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Operations</th>
+    </tr>
+    <tr style="color: black;" *ngFor="let data of viewData;let i = index">
+        <th>{{i+1}}</th>
+        <th>{{data.name}}</th>
+        <th>{{data.category}}</th>
+        <th>${{data.price}}</th>
+        <th>  
+            <!--Quantity wise dot color logic-->  
+            <mat-icon *ngIf="(data.quantity>30 && data.quantity<50)" style="font-size: 10px;color:rgb(248, 189, 79)">
+                circle
+            </mat-icon>
+            <mat-icon *ngIf="data.quantity<30" style="font-size: 10px;color:red">
+                circle
+            </mat-icon>
+            <mat-icon *ngIf="data.quantity>80" style="font-size: 10px;color:green">
+                circle
+            </mat-icon>
+            {{data.quantity}}
+        </th>
+        <th>
+            <button id="btnn" class="btn btn-primary" (click)="listToggle(data)" >Update</button>
+                &nbsp;&nbsp;
+            <button class="btn btn-danger" (click)="delete(data._id)">Delete</button>
+        </th>
+    </tr>
+</table>
+<!--Display loading symbol while data is not available-->
+    
+</div>
+<div class="d-flex justify-content-center">
+    <div class="spinner-border" id="spinner"role="status" >
+        <span  id="loading"></span><br>
+    </div>
+    <span  id="loadings">Loading data...</span>
+</div>
+
+
+
+
+
+
+<!--Update Form-->
+
+<div *ngIf="!toggle">
+<div class="outer flex sm:items-center">
+    <a class="btn" (click)="updateFormToggle()" style="margin-left: 5%;color: white;"><mat-icon>arrow_back</mat-icon></a>
+    <button  class="btn btn-light shadow-xs" style="margin-left: 73%;margin-top:-30px" (click)="save(viewData._id)">Save</button>
+</div>
+<!--Product Details Form-->
+<mat-card class="card">
+    <br><br>
+    <hr>
+    <form [formGroup]="userform">
+        <br>
+            <legend style="font-size: 15px;">Product Name *</legend>
+            <input type="text" matInput formControlName="name" style="text-align: center;" [(ngModel)]="viewData.name"  style="" required><br><br>
+           
+
+            <legend style="font-size: 15px;">Categories </legend>
+            <input type="text" matInput formControlName="category" [(ngModel)]="viewData.category" required><br><br>
+            
+            <legend style="font-size: 15px;">Tags </legend>
+            <input type="text" matInput formControlName="tag" [(ngModel)]="viewData.category" required><br><br>
+            
+            <legend style="font-size: 15px;">Price </legend>
+            <input type="text" matInput formControlName="price" [(ngModel)]="viewData.price" required><br><br>
+            
+            <legend style="font-size: 15px;">Quantity </legend>
+            <input type="text" matInput formControlName="quantity" [(ngModel)]="viewData.quantity" required>               
+           
+    </form>
+</mat-card>
+</div>
